@@ -1,0 +1,45 @@
+
+<!-- saved from url=(0098)https://www.pythonanywhere.com/user/mefisher2/files/home/mefisher2/mysite/templates/main_menu.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></head><body>{% extends "base.html" %}
+{% block head %}
+
+{% endblock %}
+
+{% block content %}
+    <div id="mybanner" class="banner" style="color: white">
+        <b>Home</b>
+    </div>
+    <div style="margin-left:15%;padding:10% 20%;height:20%;" id="main">
+        <br>
+        <br>
+        Hello, {{ fname }}! <br><br>
+        <b>Current Budget Forcast</b>
+        <br><br>
+        Credit: {{ credit }} <br>
+        Debit : {{ debit }} <br>
+        Net   : {{ net }} <br>
+
+        <br>
+        <br>
+
+        
+        {% for account in Account_data %}
+            
+                {% if account['account_type'] == 1 %}
+                
+                {% else %}
+                
+                {% endif %}
+                
+        {% endfor %}
+    <table border="1">
+        <tbody><tr>
+            <th>Account Name</th>
+            <th>Amount</th>
+            <th>Account Type</th>
+        </tr><tr>
+                <td align="right"> {{ account['tag'] }}</td>
+                <td align="right"> ${{ "{:.2f}".format(account['balance']) }}</td><td align="right"> Checking</td><td align="right"> Savings</td><td align="right"> <a href="https://www.pythonanywhere.com/user/mefisher2/files/home/mefisher2/mysite/templates/%7B%7B%20url_for(&#39;account_menu&#39;,%20account_num%20=%20account[&#39;account&#39;])%7D%7D">View</a>
+            </td></tr></tbody></table>
+    </div>
+{% endblock %}</body></html>

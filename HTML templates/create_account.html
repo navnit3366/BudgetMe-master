@@ -1,0 +1,29 @@
+
+<!-- saved from url=(0103)https://www.pythonanywhere.com/user/mefisher2/files/home/mefisher2/mysite/templates/create_account.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></head><body>{% extends "base.html" %}
+{% block head %}
+
+{% endblock %}
+
+{% block content %}
+    <div id="mybanner" class="banner" style="color: white">
+        <b>New Account Creation</b>
+    </div>
+    <div style="margin-left:15%;padding:10% 20%;height:20%;" id="main">
+        <br>
+        <br>
+        <form action="https://www.pythonanywhere.com/user/mefisher2/files/home/mefisher2/mysite/templates/create_account.html" method="POST">
+            <strong>Add Account</strong> <br><br>
+            <input type="text" name="tag" placeholder="New Account Name" size="15">
+            <select name="type">
+                    <option value="1">Checking</option>
+                    <option value="2">Savings</option>
+            </select>
+            <br><br>
+            $<input type="text" name="balance" placeholder="Account Balance" size="15">
+            <br><br>
+            <input type="submit" value="Create Account">
+            <br><br>
+        </form>
+    </div>
+{% endblock %}</body></html>

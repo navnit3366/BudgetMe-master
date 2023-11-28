@@ -1,0 +1,45 @@
+
+<!-- saved from url=(0101)https://www.pythonanywhere.com/user/mefisher2/files/home/mefisher2/mysite/templates/expense_menu.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></head><body>{% extends "base.html" %}
+{% block head %}
+
+{% endblock %}
+
+{% block content %}
+    <div id="mybanner" class="banner" style="color: white">
+        <b>Debits Menu</b>
+    </div>
+    <div style="margin-left:15%;padding:10% 20%;height:20%;" id="main">
+        <br>
+        <br>
+        
+            {% for account in Account_data %}
+                {% for trans in account.trans_debits %}
+                    
+                {% endfor %}
+            {% endfor %}
+        <table border="1">
+            <tbody><tr>
+                <th>Account</th>
+                <th>Amount</th>
+                <th>Time Added</th>
+            </tr><tr>
+                        <td align="right"> {{ account['tag'] }}</td>
+                        <td align="right"> ${{ "{:.2f}".format(trans['amount']) }}</td>
+                        <td align="right"> {{ trans['datetime'] }}</td>
+                        <td align="right"> <a href="https://www.pythonanywhere.com/user/mefisher2/files/home/mefisher2/mysite/templates/%7B%7B%20url_for(" remove_trans',="" trans_amount="trans[&#39;amount&#39;]," trans_date="trans[&#39;date&#39;])}}&#39;">Delete</a>
+                    </td></tr></tbody></table>
+        <br><br>
+        <form action="https://www.pythonanywhere.com/user/mefisher2/files/home/mefisher2/mysite/templates/expense_menu.html" method="POST">
+            <strong>Add Transaction</strong> <br><br>
+            $<input type="text" name="amount" placeholder="Transaction Amount" size="15">
+            <select name="account">
+                {% for account in Account_data %}
+                    <option value="{{account[&#39;account&#39;]}}">{{account['tag']}}</option>
+                {% endfor %}
+            </select>
+            <input type="submit" value="Add Transaction">
+            <br><br>
+        </form>
+    </div>
+{% endblock %}</body></html>

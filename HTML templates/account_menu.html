@@ -1,0 +1,97 @@
+
+<!-- saved from url=(0101)https://www.pythonanywhere.com/user/mefisher2/files/home/mefisher2/mysite/templates/account_menu.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></head><body>{% extends "base.html" %}
+{% block head %}
+
+{% endblock %}
+
+{% block content %}
+    <div id="mybanner" class="banner" style="color: white">
+        <b>Credit Menu</b>
+    </div>
+    <div style="margin-left:15%;padding:10% 20%;height:20%;" id="main">
+        <br>
+        <br>
+        <a href="https://www.pythonanywhere.com/user/mefisher2/files/home/mefisher2/mysite/templates/%7B%7B%20url_for(&#39;account_menu&#39;,%20account_num%20=%200)%7D%7D">View All Accounts</a>
+        <br>
+        <br>
+        
+            {% if Account_num == 0 %}
+                
+                {% for account in Account_data %}
+                    
+                        {% if account['account_type'] == 1 %}
+                        
+                        {% else %}
+                        
+                        {% endif %}
+                        
+                {% endfor %}
+            {% else %}
+                
+                    {% if Account_data['account_type'] == 1 %}
+                    
+                    {% else %}
+                    
+                    {% endif %}
+                    <br><br>
+                {% for trans in Account_data.trans_total %}
+                    
+                        {% if trans['trans_type'] == 0 %}
+                        
+                        {% else %}
+                        
+                        {% endif %}
+                        
+                {% endfor %}
+            {% endif %}
+        <table border="1"><tbody><tr>
+                    <th>Account Name</th>
+                    <th>Amount</th>
+                    <th>Account Type</th>
+                </tr><tr>
+                        <td align="right"> {{ account['tag'] }}</td>
+                        <td align="right"> ${{ "{:.2f}".format(account['balance']) }}</td><td align="right"> Checking</td><td align="right"> Savings</td><td align="right"> <a href="https://www.pythonanywhere.com/user/mefisher2/files/home/mefisher2/mysite/templates/%7B%7B%20url_for(&#39;delete_account&#39;,%20account_num%20=%20account[&#39;account&#39;])%7D%7D">Delete</a>
+                        </td><td align="right"> <a href="https://www.pythonanywhere.com/user/mefisher2/files/home/mefisher2/mysite/templates/%7B%7B%20url_for(&#39;account_menu&#39;,%20account_num%20=%20account[&#39;account&#39;])%7D%7D">View</a>
+                    </td></tr><tr>
+                    <th>Account Name</th>
+                    <th>Amount</th>
+                    <th>Account Type</th>
+                </tr>
+                <tr>
+                    <td align="right"> {{ Account_data['tag'] }}</td>
+                    <td align="right"> ${{ "{:.2f}".format(Account_data['balance']) }}</td><td align="right"> Checking</td><td align="right"> Savings</td><td align="right"> <a href="https://www.pythonanywhere.com/user/mefisher2/files/home/mefisher2/mysite/templates/%7B%7B%20url_for(" delete_account',="" account_num="Account_data[&#39;account&#39;])}}&#39;">Delete</a>
+                </td></tr>
+                
+                <tr>
+                    <th>Amount</th>
+                    <th>Trans Type</th>
+                    <th>Time Added</th>
+                </tr><tr><td align="right"> Debit</td><td align="right"> Credit</td><td align="right"> ${{ "{:.2f}".format(trans['amount']) }}</td>
+                        <td align="right"> {{ trans['datetime'] }}</td>
+                        <td align="right"> <a href="https://www.pythonanywhere.com/user/mefisher2/files/home/mefisher2/mysite/templates/%7B%7B%20url_for(" remove_trans',="" trans_amount="trans[&#39;amount&#39;]," trans_date="trans[&#39;date&#39;])}}&#39;">Delete</a>
+                    </td></tr></tbody></table>
+        <br><br>
+        <a href="https://www.pythonanywhere.com/user/mefisher2/files/home/mefisher2/mysite/templates/%7B%7B%20url_for(" create_account')}}'="">Create Account</a>
+        <br><br>
+        <form action="https://www.pythonanywhere.com/user/mefisher2/files/home/mefisher2/mysite/templates/account_menu.html" method="POST">
+            <strong>Add Transaction</strong> <br><br>
+            $<input type="text" name="amount" placeholder="Transaction Amount" size="15">
+             <select name="type">
+                <option value="1">Credit</option>
+                <option value="0">Debit</option>
+            </select>
+            <select name="account">
+                {% if Account_num == 0 %}
+                    {% for account in Account_data %}
+                        <option value="{{account[&#39;account&#39;]}}">{{account['tag']}}</option>
+                    {% endfor %}
+                {% else %}
+                    <option value="{{Account_data[&#39;account&#39;]}}">{{Account_data['tag']}}</option>
+                {% endif %}
+            </select>
+            <input type="submit" value="Add Transaction">
+            <br><br>
+        </form>
+    </div>
+{% endblock %}</body></html>

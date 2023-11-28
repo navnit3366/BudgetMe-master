@@ -1,0 +1,98 @@
+
+<!-- saved from url=(0097)https://www.pythonanywhere.com/user/mefisher2/files/home/mefisher2/mysite/templates/register.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style>
+    body {
+            font-family: "Lato", sans-serif;
+        }
+        .banner{
+            height: 50px;
+            width: 100%;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #111;
+            overflow-x: hidden;
+            padding-top: 2%;
+            text-align: right;
+            font-family: "Lato", sans-serif;
+            font-size: 25px;
+        }
+
+        /* The side navigation menu */
+        .sidenav {
+            height: 100%; /* 100% Full-height */
+            width: 20vw; /* 0 width - change this with JavaScript */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Stay on top */
+            top: 0; /* Stay at the top */
+            left: 0;
+            background-color: #111; /* Black*/
+            overflow-x: hidden; /* Disable horizontal scroll */
+            padding-top: 60px; /* Place content 60px from the top */
+        }
+
+        /* The navigation menu links */
+        .sidenav a {
+            padding: 6px 6px 6px 32px;
+            text-decoration: none;
+            font-size: 175%;
+            color: #818181;
+            display: block;
+        }
+
+        /* When you mouse over the navigation links, change their color */
+        .sidenav a:hover {
+            color: #f1f1f1;
+        }
+
+
+        /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+        #main {
+            margin-left: 15%;
+        }
+
+        @media screen and (max-height:450px) {
+            .sidenav { padding-top: 15px; }
+            .sidenav a { font-size: 18px; }
+        }
+</style>
+</head><body>{% block content %}
+    <div id="mybanner" class="banner" style="color: white">
+        <b>ABOUT</b>
+    </div>
+    <div class="sidenav">
+        <a style="color:white; font-size: 175%;"><b>BudgetMe</b></a>
+        <a href="https://www.pythonanywhere.com/login">Login</a>
+        <a href="https://www.pythonanywhere.com/user/mefisher2/files/home/mefisher2/mysite/templates/register.html#">FAQ</a>
+        <a href="https://www.pythonanywhere.com/user/mefisher2/files/home/mefisher2/mysite/templates/register.html#">Contact</a>
+    </div>
+    <div class="main" style="margin-left:15%;padding:130px;height:1000px;">
+
+
+        <form action="https://www.pythonanywhere.com/user/mefisher2/files/home/mefisher2/mysite/templates/register.html" method="POST">
+            <b>Register an Account</b>
+            <br>
+            <br>
+            <input type="text" name="fname" placeholder="First Name">
+            <br>
+            <input type="text" name="lname" placeholder="Last Name">
+            <br>
+            <input type="text" name="username" placeholder="Username">
+            <br>
+            <input type="text" name="password" placeholder="Password">
+            <br>
+
+            {% if error != None %}
+                <font color="red">{{ error }}</font><br>
+            {% else %}
+                <br>
+            {% endif %}
+
+            <input type="submit" value="Register Account!">
+
+        </form>
+
+    </div>
+
+{% endblock %}</body></html>
